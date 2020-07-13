@@ -44,9 +44,13 @@ export default class Item extends React.Component {
               title="Copy to clipboard"
             />
           </CopyClipboard>
-          <div className="comments">
-            <span className="comment-line">{this.props.comment}</span>
-          </div>
+          {this.props.comment !== '' && this.props.comment ? (
+            <div className="comments">
+              <span className="comment-line">
+                {this.props.comment}
+              </span>
+            </div>
+          ) : null}
         </div>
       </div>
     )

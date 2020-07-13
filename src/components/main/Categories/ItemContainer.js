@@ -79,7 +79,7 @@ export default class ItemContainer extends React.Component {
   componentDidMount() {}
 
   removeCard(e) {
-    console.log(e.currentTarget.id)
+    // console.log(e.currentTarget.id)
     let items = this.state.items
     items.splice(parseInt(e.currentTarget), 1)
     this.setState({
