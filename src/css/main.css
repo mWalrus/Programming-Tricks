@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Concert+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #393e41;
+}
+
+body .application {
+  width: 100%;
+  height: 100%;
+}
+
+body .application .app-header {
+  font-family: 'Concert One', cursive;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+body .application .app-header h1 {
+  font-size: 3rem;
+  color: #cc59d2;
+  margin: 0;
+}
+
+body .application .app-header p {
+  color: #fffaff;
+}
+
+body .application .app-main {
+  color: #fffaff;
+  font-family: 'Baloo 2', cursive;
+}
+
+body .application .app-main .language-select {
+  width: 70%;
+  margin: auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+}
+
+body .application .app-main .language-select .selection {
+  font-weight: 700;
+  font-size: 1.2rem;
+  width: 50%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 15px 20px;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+body .application .app-main .language-select .selection:nth-child(1) {
+  background-color: #e94f37;
+}
+
+body .application .app-main .language-select .selection:nth-child(1):hover {
+  background-color: rgba(233, 79, 55, 0.8);
+}
+
+body .application .app-main .language-select .selection:nth-child(2) {
+  background-color: #ffbf3e;
+}
+
+body .application .app-main .language-select .selection:nth-child(2):hover {
+  background-color: rgba(255, 191, 62, 0.8);
+}
+
+body .application .app-main .language-select .selection:nth-child(3) {
+  background-color: #884acf;
+}
+
+body .application .app-main .language-select .selection:nth-child(3):hover {
+  background-color: rgba(136, 74, 207, 0.8);
+}
+
+body .application .app-main .sections .section {
+  text-align: center;
+}
+
+body .application .app-main .sections .section .items {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  row-gap: 4rem;
+  width: 70%;
+  margin: auto;
+}
+
+body .application .app-main .sections .section .items .item {
+  background-color: #2c2c2c;
+  width: 80%;
+  border-radius: 10px;
+}
+
+body .application .app-main .sections .section .items .item .item-header {
+  text-align: left;
+  position: relative;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+body .application .app-main .sections .section .items .item .item-header h4 {
+  margin: 0 20px 0 10px;
+}
+
+body .application .app-main .sections .section .items .item .item-header .close-btn {
+  position: absolute;
+  top: 0px;
+  right: 5px;
+  cursor: pointer;
+}
+
+body .application .app-main .sections .section .items .item .item-content {
+  padding: 10px;
+  position: relative;
+}
+
+body .application .app-main .sections .section .items .item .item-content .line,
+body .application .app-main .sections .section .items .item .item-content .comment-line {
+  display: block;
+  text-align: left;
+}
+
+body .application .app-main .sections .section .items .item .item-content .comments {
+  background-color: #454353;
+  margin-top: 1rem;
+  padding: 0.7rem;
+  border-radius: 10px;
+}
+
+body .application .app-main .sections .section .items .item .item-content .comments .comment-line {
+  max-width: 100%;
+}
+
+body .application .app-main .sections .section .items .item .item-content .clipboard-icon {
+  height: 24px;
+  width: auto;
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+body .application .app-main .sections .html-css .items .item {
+  border: 1px solid #e94f37;
+}
+
+body .application .app-main .sections .html-css .items .item .item-header {
+  background-color: #e94f37;
+}
+
+body .application .app-main .sections .js .items .item {
+  border: 1px solid #ffbf3e;
+}
+
+body .application .app-main .sections .js .items .item .item-header {
+  background-color: #ffbf3e;
+}
+
+body .application .app-main .sections .java .items .item {
+  border: 1px solid #884acf;
+}
+
+body .application .app-main .sections .java .items .item .item-header {
+  background-color: #884acf;
+}
+/*# sourceMappingURL=main.css.map */
