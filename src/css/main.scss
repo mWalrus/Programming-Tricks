@@ -74,6 +74,20 @@ body {
             }
           }
         }
+        .create-new {
+          border: 1px solid rgb(94, 255, 94);
+          color: rgb(94, 255, 94);
+          .new-lang-area {
+            background: none;
+            border: none;
+            border-bottom: 1px solid rgb(94, 255, 94);
+            resize: none;
+            font-size: 1.3rem;
+            height: 2rem;
+            width: 100%;
+            color: $regText;
+          }
+        }
       }
       .sections {
         .section {

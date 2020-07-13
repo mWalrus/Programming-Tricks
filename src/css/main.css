@@ -78,6 +78,22 @@ body .application .app-main .language-select .selection:nth-child(3):hover {
   background-color: rgba(136, 74, 207, 0.8);
 }
 
+body .application .app-main .language-select .create-new {
+  border: 1px solid #5eff5e;
+  color: #5eff5e;
+}
+
+body .application .app-main .language-select .create-new .new-lang-area {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #5eff5e;
+  resize: none;
+  font-size: 1.3rem;
+  height: 2rem;
+  width: 100%;
+  color: #fffaff;
+}
+
 body .application .app-main .sections .section {
   text-align: center;
 }

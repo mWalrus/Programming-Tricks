@@ -26,7 +26,7 @@ export default class ItemContainer extends React.Component {
           ],
           comment:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-          id: '0',
+          id: '1',
         },
         {
           title: 'test',
@@ -37,7 +37,7 @@ export default class ItemContainer extends React.Component {
           ],
           comment:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-          id: '0',
+          id: '2',
         },
         {
           title: 'test',
@@ -48,7 +48,7 @@ export default class ItemContainer extends React.Component {
           ],
           comment:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-          id: '0',
+          id: '3',
         },
         {
           title: 'test',
@@ -59,7 +59,18 @@ export default class ItemContainer extends React.Component {
           ],
           comment:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-          id: '0',
+          id: '4',
+        },
+        {
+          title: 'test',
+          content: [
+            'css-rule: fix-content;',
+            'css-rule: fix-content;',
+            'css-rule: fix-content;',
+          ],
+          comment:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          id: '5',
         },
       ],
     }
