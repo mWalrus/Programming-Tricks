@@ -7,6 +7,8 @@ $jsContainer: #ffbf3e;
 $javaContainer: #884acf;
 $itemBg: #2c2c2c;
 $regText: #fffaff;
+$addColor: rgb(94, 255, 94);
+$removeColor: rgb(255, 95, 95);
 
 body {
   margin: 0;
@@ -75,12 +77,12 @@ body {
           }
         }
         .create-new {
-          border: 1px solid rgb(94, 255, 94);
-          color: rgb(94, 255, 94);
+          border: 1px solid $addColor;
+          color: $addColor;
           .new-lang-area {
             background: none;
             border: none;
-            border-bottom: 1px solid rgb(94, 255, 94);
+            border-bottom: 1px solid $addColor;
             resize: none;
             font-size: 1.3rem;
             height: 2rem;
@@ -94,7 +96,10 @@ body {
           text-align: center;
           .items {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(
+              auto-fill,
+              minmax(33%, 33%)
+            );
             justify-items: center;
             row-gap: 4rem;
             width: 70%;
@@ -126,11 +131,18 @@ body {
                   display: block;
                   text-align: left;
                 }
+                .item-code {
+                  overflow-x: auto;
+                  margin-right: 2rem;
+                  box-sizing: border-box;
+                }
                 .comments {
                   background-color: rgb(69, 67, 83);
                   margin-top: 1rem;
                   padding: 0.7rem;
                   border-radius: 10px;
+                  height: 7rem;
+                  overflow-y: auto;
                   .comment-line {
                     max-width: 100%;
                   }
@@ -144,6 +156,78 @@ body {
                   top: 5px;
                   right: 5px;
                 }
+              }
+            }
+            .add-item {
+              width: 80%;
+              box-sizing: border-box;
+              margin: 0 auto;
+              border: 2px solid $title;
+              border-radius: 10px;
+              padding: 1rem;
+              position: relative;
+              span {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                border: 1px solid $removeColor;
+                color: $removeColor;
+                border-radius: 0.5rem;
+                width: 2rem;
+                height: 2rem;
+                line-height: 2rem;
+                font-size: 1.4rem;
+                cursor: pointer;
+                &:hover {
+                  background-color: $removeColor;
+                  color: $regText;
+                }
+              }
+              input,
+              textarea {
+                margin-top: 1rem;
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+                border: none;
+                background-color: $itemBg;
+                resize: none;
+                color: $regText;
+                border-radius: 10px;
+                padding: 10px;
+              }
+              .submit-btn {
+                border: 1px solid $addColor;
+                color: $addColor;
+                border-radius: 10px;
+                height: 3rem;
+                width: 50%;
+                margin: auto;
+                margin-top: 1rem;
+                line-height: 3rem;
+                cursor: pointer;
+                &:hover {
+                  color: $regText;
+                  background-color: $addColor;
+                }
+              }
+            }
+            .add-new-btn {
+              align-self: center;
+              width: 50%;
+              height: 10rem;
+              line-height: 10rem;
+              margin: auto;
+              border: 1px solid $addColor;
+              border-radius: 10px;
+              color: $addColor;
+              cursor: pointer;
+              h4 {
+                margin: 0;
+              }
+              &:hover {
+                background-color: $addColor;
+                color: $regText;
               }
             }
           }

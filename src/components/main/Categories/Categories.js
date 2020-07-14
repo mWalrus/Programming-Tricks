@@ -1,4 +1,5 @@
 import React from 'react'
+import { v4 as uuidv4 } from 'uuid'
 
 export default class Categories extends React.Component {
   constructor(props) {
@@ -64,6 +65,7 @@ export default class Categories extends React.Component {
                 this.props.toggleMenu(e)
               }}
               id={this.state.categories.indexOf(category) + 1}
+              key={uuidv4()}
             >
               {category}
             </div>

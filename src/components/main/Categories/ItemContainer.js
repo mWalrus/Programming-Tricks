@@ -1,90 +1,59 @@
 import React from 'react'
 import Item from './Item'
+import AddItem from './AddItem'
+import axios from 'axios'
+import { v4 as uuidv4 } from 'uuid'
 
 export default class ItemContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      items: [
-        {
-          title: 'test',
-          content: [
-            'css-rule: fix-content;',
-            'css-rule: fix-content;',
-            'css-rule: fix-content;',
-          ],
-          comment:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-          id: '0',
-        },
-        {
-          title: 'test',
-          content: [
-            'css-rule: fix-content;',
-            'css-rule: fix-content;',
-            'css-rule: fix-content;',
-          ],
-          comment:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-          id: '1',
-        },
-        {
-          title: 'test',
-          content: [
-            'css-rule: fix-content;',
-            'css-rule: fix-content;',
-            'css-rule: fix-content;',
-          ],
-          comment:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-          id: '2',
-        },
-        {
-          title: 'test',
-          content: [
-            'css-rule: fix-content;',
-            'css-rule: fix-content;',
-            'css-rule: fix-content;',
-          ],
-          comment:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-          id: '3',
-        },
-        {
-          title: 'test',
-          content: [
-            'css-rule: fix-content;',
-            'css-rule: fix-content;',
-            'css-rule: fix-content;',
-          ],
-          comment:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-          id: '4',
-        },
-        {
-          title: 'test',
-          content: [
-            'css-rule: fix-content;',
-            'css-rule: fix-content;',
-            'css-rule: fix-content;',
-          ],
-          comment:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-          id: '5',
-        },
-      ],
+      items: [],
     }
   }
 
-  componentDidMount() {}
+  async componentDidMount() {
+    await this.getItems()
+  }
 
-  removeCard(e) {
-    // console.log(e.currentTarget.id)
-    let items = this.state.items
-    items.splice(parseInt(e.currentTarget), 1)
+  async sendNewItemToDatabase(item) {
+    if (!item.title || !item.code) return
+    const post = await axios.post(
+      `http://localhost:3001/db/${this.props.route}/set`,
+      {
+        title: item.title,
+        code: JSON.stringify(item.code.split('\n')),
+        comment: !item.comment ? 'null' : item.comment,
+      }
+    )
+
+    const response = post.data
+    console.log(response)
+    await this.getItems()
+  }
+
+  // async componentDidUpdate() {
+  //   await this.getItems()
+  //   return
+  // }
+
+  async getItems() {
+    const res = await axios.get(
+      `http://localhost:3001/db/${this.props.route}/get`
+    )
+    if (this.state.items === res.data) return
     this.setState({
-      items,
+      items: res.data,
     })
+  }
+
+  async removeCard(e) {
+    // console.log(e.currentTarget.id)
+    await axios.get(
+      `http://localhost:3001/db/${this.props.route}/remove/${e.currentTarget.id}`
+    )
+    // console.log(req.data)
+    await this.getItems()
   }
 
   render() {
@@ -92,13 +61,15 @@ export default class ItemContainer extends React.Component {
       <div className="items">
         {this.state.items.map((item) => (
           <Item
-            title={item.title}
-            content={item.content}
-            comment={item.comment}
-            itemId={item.id}
+            item={item}
             removeCard={this.removeCard.bind(this)}
+            key={uuidv4()}
           />
         ))}
+        <AddItem
+          category={this.props.route}
+          sendItem={this.sendNewItemToDatabase.bind(this)}
+        />
       </div>
     )
   }

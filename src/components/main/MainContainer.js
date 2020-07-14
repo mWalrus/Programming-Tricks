@@ -45,7 +45,7 @@ export default class MainContainer extends React.Component {
     return (
       <div className="section html-css">
         <h2 className="section-header">HTML/CSS</h2>
-        <ItemContainer />
+        <ItemContainer route="htmlcss" />
       </div>
     )
   }
@@ -55,7 +55,7 @@ export default class MainContainer extends React.Component {
     return (
       <div className="section js">
         <h2 className="section-header">JS</h2>
-        <ItemContainer />
+        <ItemContainer route="js" />
       </div>
     )
   }
@@ -65,7 +65,7 @@ export default class MainContainer extends React.Component {
     return (
       <div className="section java">
         <h2 className="section-header">Java</h2>
-        <ItemContainer />
+        <ItemContainer route="java" />
       </div>
     )
   }

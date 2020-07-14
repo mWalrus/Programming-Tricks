@@ -1,4 +1,5 @@
 import React from 'react'
+import { v4 as uuidv4 } from 'uuid'
 import CopyClipboard from 'react-copy-to-clipboard'
 import list from '../../../img/list.png'
 
@@ -12,7 +13,7 @@ export default class Item extends React.Component {
 
   componentDidMount() {
     this.setState({
-      value: this.props.content.join('\n'),
+      value: JSON.parse(this.props.item.code).join('\n'),
     })
   }
 
@@ -20,11 +21,11 @@ export default class Item extends React.Component {
     return (
       <div className="item">
         <div className="item-header">
-          <h4>{this.props.title}</h4>
+          <h4>{this.props.item.title}</h4>
           <span
             className="close-btn"
             title="Remove card"
-            id={this.props.itemId}
+            id={this.props.item.id}
             onClick={(e) => {
               this.props.removeCard(e)
             }}
@@ -33,9 +34,15 @@ export default class Item extends React.Component {
           </span>
         </div>
         <div className="item-content">
-          {this.props.content.map((line) => {
-            return <code className="line">{line}</code>
-          })}
+          <div className="item-code">
+            {JSON.parse(this.props.item.code).map((line) => {
+              return (
+                <code className="line" key={uuidv4()}>
+                  {line}
+                </code>
+              )
+            })}
+          </div>
           <CopyClipboard text={this.state.value}>
             <img
               src={list}
@@ -44,10 +51,11 @@ export default class Item extends React.Component {
               title="Copy to clipboard"
             />
           </CopyClipboard>
-          {this.props.comment !== '' && this.props.comment ? (
+          {this.props.item.comment !== 'null' &&
+          this.props.item.comment ? (
             <div className="comments">
               <span className="comment-line">
-                {this.props.comment}
+                {this.props.item.comment}
               </span>
             </div>
           ) : null}
