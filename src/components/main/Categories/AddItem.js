@@ -84,7 +84,7 @@ export default class AddItem extends React.Component {
               this.setItemData(e, 3)
             }}
           ></textarea>
-          <div
+          <button
             className="submit-btn"
             onClick={() => {
               this.props.sendItem(
@@ -95,7 +95,7 @@ export default class AddItem extends React.Component {
             }}
           >
             Add
-          </div>
+          </button>
         </div>
       )
     }
